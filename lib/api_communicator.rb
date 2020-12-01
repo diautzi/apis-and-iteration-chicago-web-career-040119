@@ -4,7 +4,7 @@ require 'pry'
 
 def get_character_movies_from_api(character_name)
   #make the web request
-  response_string = RestClient.get('http://www.swapi.co/api/people/')
+  RestClient.get('http://swapi.co/api/people')
   response_hash = JSON.parse(response_string)
 
   # iterate over the response hash to find the collection of `films` for the given
@@ -33,6 +33,9 @@ def print_movies(films)
     puts "#{index + 1} " + data["title"]
   end
 end
+
+print_movies("name": "Luke Skywalker")
+
 
 def show_character_movies(character)
   formatted_character = character.strip
